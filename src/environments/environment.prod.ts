@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  tmdbApiKey: process.env['NG_APP_TMDB_API_KEY'] || '',
+  tmdbApiKey: '', // empty or dummy key
   tmdbBaseUrl: 'https://api.themoviedb.org/3',
-  tmdbImageBaseUrl: 'https://image.tmdb.org/t/p/w500'
+  tmdbImageBaseUrl: 'https://image.tmdb.org/t/p/w500',
 };
