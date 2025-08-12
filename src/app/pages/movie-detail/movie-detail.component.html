@@ -1,0 +1,39 @@
+<div class="movie-detail-container">
+  <ng-container *ngIf="!loading; else loadingTemplate">
+    
+    <!-- Title -->
+    <h2 *ngIf="movie">{{ movie.title || movie.name }}</h2>
+    
+    <!-- Overview -->
+    <p *ngIf="movie?.overview">{{ movie.overview }}</p>
+    
+    <!-- Release Date -->
+    <p *ngIf="movie?.release_date || movie?.first_air_date">
+      Release Date: {{ movie.release_date || movie.first_air_date | date }}
+    </p>
+
+    <!-- Streaming Player -->
+<div *ngIf="streamingAvailable && streamUrl; else noStream">
+  <iframe
+    [src]="streamUrl! | safeUrl"
+    allowfullscreen
+    frameborder="0"
+    width="100%"
+    height="500"
+    style="border: none;"
+  ></iframe>
+</div>
+
+
+    <!-- No Stream -->
+    <ng-template #noStream>
+      <p class="no-stream">Streaming not available for this content.</p>
+    </ng-template>
+
+  </ng-container>
+
+  <!-- Loading -->
+  <ng-template #loadingTemplate>
+    <p>Loading movie details...</p>
+  </ng-template>
+</div>

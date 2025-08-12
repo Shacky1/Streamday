@@ -1,0 +1,68 @@
+.movie-detail-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  background-color: var(--color-bg-card);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px var(--color-shadow);
+  color: var(--color-text-light);
+  font-family: Arial, sans-serif;
+}
+
+/* Title */
+.movie-detail-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-align: center;
+  word-wrap: break-word;
+}
+
+/* General paragraph styling */
+.movie-detail-container p {
+  line-height: 1.5;
+  margin-bottom: 1rem;
+  color: var(--color-text-muted);
+}
+
+/* First paragraph (overview) */
+.movie-detail-container p:first-of-type {
+  color: var(--color-text-light);
+}
+
+/* Streaming iframe */
+.movie-detail-container iframe {
+  display: block;
+  margin: 1.5rem auto 0;
+  width: 100%;
+  max-width: 100%;
+  height: 600px;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px var(--color-shadow-hover);
+  background-color: black;
+}
+
+/* No stream message */
+.movie-detail-container .no-stream {
+  text-align: center;
+  font-style: italic;
+  color: var(--color-text-placeholder);
+  margin-top: 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .movie-detail-container {
+    padding: 1rem;
+  }
+
+  .movie-detail-container iframe {
+    height: 360px;
+  }
+
+  .movie-detail-container h2 {
+    font-size: 1.5rem;
+  }
+}
