@@ -1,15 +1,13 @@
-/* navbar.component.scss */
-
 /* Navbar container and background */
 .navbar {
-  background-color: #1a202c; /* dark slate gray */
+  background-color: #1a202c; /* dark gray */
   color: white;
   padding: 1rem 1.5rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.5);
   font-family: Arial, sans-serif;
 }
 
-/* Inner container for flex layout */
+/* Flex container for navbar content */
 .navbar-container {
   max-width: 1200px;
   margin: 0 auto;
@@ -22,220 +20,121 @@
 /* Logo styling */
 .navbar-logo {
   font-size: 1.75rem;
-  font-weight: 700;
+  font-weight: bold;
   color: #5a67d8; /* Indigo */
   text-decoration: none;
   white-space: nowrap;
+  transition: color 0.3s ease;
 }
 
-/* Desktop nav links */
+.navbar-logo:hover,
+.navbar-logo:focus {
+  color: #434190; /* Darker indigo on hover */
+  outline: none;
+}
+
+/* Navigation links - Desktop only */
 .nav-links.desktop {
   list-style: none;
   display: flex;
-  align-items: center;
   gap: 1.5rem;
-  margin: 0;
+  margin: 0 0 0 2rem;
   padding: 0;
+  align-items: center;
 }
 
-.nav-links.desktop li a,
-.nav-links.desktop li button.dropdown-toggle {
+.nav-links.desktop li a {
   color: white;
   text-decoration: none;
   font-weight: 600;
-  background: none;
-  border: none;
-  cursor: pointer;
   font-size: 1rem;
   padding: 0.25rem 0;
   transition: color 0.3s ease;
 }
 
 .nav-links.desktop li a:hover,
-.nav-links.desktop li button.dropdown-toggle:hover,
 .nav-links.desktop li a.active {
-  color: #5a67d8; /* Indigo */
+  color: #5a67d8; /* Indigo highlight */
 }
 
-
-/* Right side icons container */
-.navbar-icons.desktop {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-}
-
-/* Icon button styling */
-.icon-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: white;
-  padding: 0.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.3s ease;
-}
-
-.icon-button:hover {
-  color: #5a67d8;
-}
-
-/* SVG icon sizes */
-.icon-search,
-.icon-user {
-  width: 24px;
-  height: 24px;
-  stroke: currentColor;
-}
-
-/* Hamburger button for mobile */
-.navbar-toggler {
-  display: none; /* hidden on desktop */
+/* Mobile menu styles */
+.nav-links.mobile {
+  list-style: none;
+  padding: 1rem 1rem 1rem 0;
+  margin: 0;
+  width: 100%;
+  background-color: #1a202c;
+  border-top: 1px solid #333;
+  display: none;
   flex-direction: column;
-  gap: 5px;
+  gap: 1rem;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  border-radius: 0 0 12px 12px;
+}
+
+.nav-links.mobile.open {
+  display: flex;
+}
+
+.nav-links.mobile li a {
+  color: white;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  display: block;
+  transition: background-color 0.2s ease;
+}
+
+.nav-links.mobile li a:hover,
+.nav-links.mobile li a.active {
+  background-color: #5a67d8;
+  border-radius: 8px;
+  color: white;
+}
+
+/* Hamburger toggle button */
+.navbar-toggler {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
   background: none;
   border: none;
   cursor: pointer;
+  padding: 0;
+  margin-left: auto;
 }
 
-/* Hamburger lines */
 .hamburger-icon {
   width: 25px;
   height: 3px;
   background-color: #cbd5e0; /* light gray */
   border-radius: 2px;
+  transition: background-color 0.3s ease;
 }
 
-/* Mobile menu */
-.mobile-menu {
-  margin-top: 1rem;
-  padding: 0 1rem;
-  background-color: #1a202c;
-  border-top: 1px solid #2d3748;
-  border-radius: 0 0 6px 6px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-}
-
-.nav-links.mobile {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links.mobile li {
-  margin-bottom: 1rem;
-}
-
-.nav-links.mobile li a,
-.nav-links.mobile li button.icon-button {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  display: inline-block;
-  width: 100%;
-  text-align: left;
-  padding: 0.25rem 0;
-}
-
-.nav-links.mobile li a:hover,
-.nav-links.mobile li button.icon-button:hover {
-  color: #5a67d8;
-}
-
-/* Details/Summary for mobile genres */
-details summary {
-  cursor: pointer;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  list-style: none;
+.navbar-toggler:hover .hamburger-icon,
+.navbar-toggler:focus .hamburger-icon {
+  background-color: #5a67d8;
   outline: none;
 }
 
-details summary::-webkit-details-marker {
-  display: none; /* hide default marker */
-}
-
-details[open] summary::after {
-  content: "▲";
-  float: right;
-  font-size: 0.8rem;
-}
-
-details summary::after {
-  content: "▼";
-  float: right;
-  font-size: 0.8rem;
-}
-
-details ul {
-  list-style: none;
-  padding-left: 1rem;
-  margin: 0;
-}
-
-details ul li a {
-  font-weight: 500;
-}
-
-/* User menu dropdown */
-.user-menu {
-  position: absolute;
-  top: 60px;
-  right: 1.5rem;
-  background-color: #2d3748;
-  border-radius: 6px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  padding: 0.5rem 0;
-  z-index: 20;
-  min-width: 150px;
-}
-
-.user-menu ul {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.user-menu li {
-  padding: 0.5rem 1rem;
-}
-
-.user-menu li a,
-.user-menu li button {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  background: none;
-  border: none;
-  width: 100%;
-  text-align: left;
-  cursor: pointer;
-}
-
-.user-menu li a:hover,
-.user-menu li button:hover {
-  background-color: #5a67d8;
-  color: white;
-}
-
-/* Responsive: show hamburger and toggle menus on small screens */
+/* Responsive behavior */
 @media (max-width: 640px) {
+  /* Show hamburger toggle */
   .navbar-toggler {
     display: flex;
   }
-
-  .nav-links.desktop,
-  .navbar-icons.desktop {
+  /* Hide desktop nav links */
+  .nav-links.desktop {
     display: none;
   }
-
-  .mobile-menu {
-    display: block;
+  /* Position relative so mobile menu can be absolute */
+  .navbar-container {
+    position: relative;
   }
 }

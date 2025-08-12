@@ -13,17 +13,16 @@
     </p>
 
     <!-- Streaming Player -->
-<div *ngIf="streamingAvailable && streamUrl; else noStream">
-  <iframe
-    [src]="streamUrl! | safeUrl"
-    allowfullscreen
-    frameborder="0"
-    width="100%"
-    height="500"
-    style="border: none;"
-  ></iframe>
-</div>
-
+    <div *ngIf="streamingAvailable && streamUrl; else noStream">
+      <iframe
+        [src]="streamUrl! | safeUrl"
+        allowfullscreen
+        frameborder="0"
+        width="100%"
+        height="500"
+        style="border: none;"
+      ></iframe>
+    </div>
 
     <!-- No Stream -->
     <ng-template #noStream>

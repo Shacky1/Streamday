@@ -1,7 +1,6 @@
 <div class="home-container">
   <h2 class="home-title">Popular Movies & TV Shows</h2>
 
-  <!-- Search + Genre Filter -->
   <form (submit)="searchMovies(); $event.preventDefault()" class="search-form" role="search">
     <input
       type="text"
@@ -18,15 +17,15 @@
       <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
     </select>
 
-    <button type="submit" class="search-button">Search</button>
+    <button type="submit" class="search-button">
+      <i class="bi bi-search"></i> Search
+    </button>
   </form>
 
-  <!-- No Results -->
   <div *ngIf="movies.length === 0 && query.trim() !== ''" class="no-results">
     No results found for "{{ query }}"
   </div>
 
-  <!-- Movie/TV Grid -->
   <div class="movie-grid" *ngIf="movies.length > 0">
     <div *ngFor="let movie of movies" class="movie-card">
       <img
@@ -36,33 +35,24 @@
         loading="lazy"
       />
       <div class="movie-info">
-  <!-- Title -->
-  <h3 class="movie-title">{{ movie.title || movie.name }}</h3>
-
-  <!-- Release Date -->
-  <p class="movie-date">
-    {{ movie.release_date || movie.first_air_date | date: 'mediumDate' }}
-  </p>
-
-  <!-- Overview -->
-  <p *ngIf="movie?.overview" class="movie-overview">
-    {{ movie.overview }}
-  </p>
-
-  <!-- Rating -->
-  <p class="movie-rating">
-    ⭐ {{ movie.vote_average ? (movie.vote_average | number: '1.1-1') : 'N/A' }} / 10
-  </p>
-
-  <!-- Watch Button -->
-  <a
-    [routerLink]="['/', movie.media_type || 'movie', movie.id]"
-    class="watch-button"
-  >
-    ▶ Watch Now
-  </a>
-</div>
-
+        <h3 class="movie-title">{{ movie.title || movie.name }}</h3>
+        <p class="movie-date">
+          {{ movie.release_date || movie.first_air_date | date: 'mediumDate' }}
+        </p>
+        <p *ngIf="movie?.overview" class="movie-overview">
+          {{ movie.overview }}
+        </p>
+        <p class="movie-rating">
+          <i class="bi bi-star-fill" style="color: #ffcc00;"></i>
+          {{ movie.vote_average ? (movie.vote_average | number: '1.1-1') : 'N/A' }} / 10
+        </p>
+        <a
+          [routerLink]="['/', movie.media_type || 'movie', movie.id]"
+          class="watch-button"
+        >
+          <i class="bi bi-play-fill"></i> Watch Now
+        </a>
+      </div>
     </div>
   </div>
 </div>

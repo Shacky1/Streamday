@@ -17,6 +17,7 @@
   color: var(--color-primary);
   text-align: center;
   word-wrap: break-word;
+  word-break: break-word; /* better wrap on long words */
 }
 
 /* General paragraph styling */
@@ -53,9 +54,15 @@
 }
 
 /* Responsive adjustments */
+@media (max-width: 1024px) {
+  .movie-detail-container iframe {
+    height: 480px;
+  }
+}
+
 @media (max-width: 768px) {
   .movie-detail-container {
-    padding: 1rem;
+    padding: 1rem 1.5rem;
   }
 
   .movie-detail-container iframe {
@@ -64,5 +71,19 @@
 
   .movie-detail-container h2 {
     font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .movie-detail-container {
+    padding: 1rem;
+  }
+
+  .movie-detail-container iframe {
+    height: 240px;
+  }
+
+  .movie-detail-container h2 {
+    font-size: 1.25rem;
   }
 }
