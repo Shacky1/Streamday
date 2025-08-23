@@ -231,3 +231,28 @@
   content: "▶";
   font-size: 1rem;
 }
+
+/* SEO Section */
+.seo-text {
+  margin-top: 3rem;
+  padding: 2rem 1.5rem;
+  background-color: #1a202c;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.seo-text h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.seo-text p {
+  font-size: 1rem;
+  color: #cbd5e0;
+  margin-bottom: 1rem;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
