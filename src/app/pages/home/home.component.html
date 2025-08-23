@@ -1,10 +1,18 @@
+
+<head>
+  <title>Stream Movies for Free Online | Watch Free TV Shows | StreamDay</title>
+  <meta name="description" content="Stream movies for free on StreamDay. Watch the latest films, trending TV shows, and classics online without subscriptions or fees. Unlimited free streaming anytime.">
+</head>
+
+<!-- home.component.html -->
 <div class="home-container">
-  <!-- SEO-Friendly Heading -->
-  <h1 class="home-title">Stream Free Movies & TV Shows Online</h1>
+  <!-- Main SEO Heading -->
+  <h1 class="home-title">Stream Movies for Free & Watch TV Shows Online</h1>
+
   <p class="intro-text">
-    Welcome to <strong>StreamDay</strong> – your best place to <em>watch free movies online</em>, 
-    discover trending TV shows, and enjoy unlimited streaming at no cost. 
-    Browse popular films, search by genre, or explore the latest releases in high quality.
+    Welcome to <strong>StreamDay</strong> – your #1 platform to <em>stream movies for free</em> 
+    and enjoy unlimited access to TV shows online. Explore the latest releases, discover trending 
+    films, and watch high-quality content at no cost.
   </p>
 
   <!-- Search Form -->
@@ -29,20 +37,21 @@
     </button>
   </form>
 
+  <!-- No Results -->
   <div *ngIf="movies.length === 0 && query.trim() !== ''" class="no-results">
     No results found for "{{ query }}". Try searching other <strong>free streaming movies</strong> or TV shows.
   </div>
 
   <!-- Movie Grid -->
-  <div class="movie-grid" *ngIf="movies.length > 0">
-    <div *ngFor="let movie of movies" class="movie-card">
+  <section class="movie-grid" *ngIf="movies.length > 0">
+    <article *ngFor="let movie of movies" class="movie-card">
       <img
         [src]="imageUrl(movie.poster_path)"
-        alt="Watch {{ movie.title || movie.name }} free online"
+        alt="Stream {{ movie.title || movie.name }} for free online"
         class="movie-poster"
         loading="lazy"
       />
-      <article class="movie-info">
+      <div class="movie-info">
         <h2 class="movie-title">{{ movie.title || movie.name }}</h2>
         <p class="movie-date">
           Released: {{ movie.release_date || movie.first_air_date | date: 'mediumDate' }}
@@ -60,21 +69,21 @@
         >
           <i class="bi bi-play-fill"></i> Watch Free
         </a>
-      </article>
-    </div>
-  </div>
+      </div>
+    </article>
+  </section>
 
   <!-- SEO Footer Content -->
   <section class="seo-text">
-    <h3>Why StreamDay?</h3>
+    <h2>Why Choose StreamDay to Stream Movies for Free?</h2>
     <p>
-      At <strong>StreamDay</strong>, you can <em>stream movies for free</em>, enjoy TV shows online,
-      and explore thousands of titles without subscription fees. Whether you love action, drama,
-      comedy, or anime, our free streaming platform has something for everyone.
+      At <strong>StreamDay</strong>, you can <em>watch movies online for free</em> and enjoy 
+      unlimited access to TV shows without subscriptions. From action and adventure to comedy, drama, 
+      documentaries, and anime – our library has something for everyone.
     </p>
     <p>
-      Start watching today and discover why users choose <strong>StreamDay</strong> for the best 
-      <em>free movies and TV streaming experience</em>.
+      Whether you’re looking for the latest blockbusters or timeless classics, StreamDay makes it easy 
+      to <em>stream movies free online</em> in high quality. No fees, no sign-ups – just instant streaming.
     </p>
   </section>
 </div>
