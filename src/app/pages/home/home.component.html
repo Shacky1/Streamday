@@ -1,3 +1,12 @@
+<head>
+  <title>Stream Movies for Free Online | Watch Free TV Shows | StreamDay</title>
+  <meta name="description" content="Stream movies for free on StreamDay. Watch the latest films, trending TV shows, and classics online without subscriptions or fees. Unlimited free streaming anytime.">
+
+  <!-- ✅ Google AdSense Global Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7437659953406580"
+     crossorigin="anonymous"></script>
+</head>
+
 <!-- home.component.html -->
 <div class="home-container">
   <!-- Main SEO Heading -->
@@ -9,19 +18,38 @@
     films, and watch high-quality content at no cost.
   </p>
 
-  <!-- Search Form -->
-  <form (submit)="searchMovies(); $event.preventDefault()" class="search-form" role="search">
-    ...
-  </form>
-
-  <!-- ✅ Ad 1: Below search -->
+  <!-- ✅ AdSense Ad after intro -->
   <ins class="adsbygoogle"
-       style="display:block; text-align:center; margin:1rem 0;"
+       style="display:block; text-align:center; margin: 20px 0;"
        data-ad-client="ca-pub-7437659953406580"
        data-ad-slot="1234567890"
        data-ad-format="auto"
        data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+  <script>
+       (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+
+  <!-- Search Form -->
+  <form (submit)="searchMovies(); $event.preventDefault()" class="search-form" role="search">
+    <input
+      type="text"
+      [(ngModel)]="query"
+      name="query"
+      placeholder="Search free movies or TV shows..."
+      class="search-input"
+      autocomplete="off"
+      aria-label="Search movies"
+    />
+
+    <select [(ngModel)]="selectedGenre" name="genre" class="genre-select" (change)="getMoviesByGenre()">
+      <option value="">All Genres</option>
+      <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
+    </select>
+
+    <button type="submit" class="search-button">
+      <i class="bi bi-search"></i> Search
+    </button>
+  </form>
 
   <!-- No Results -->
   <div *ngIf="movies.length === 0 && query.trim() !== ''" class="no-results">
@@ -30,31 +58,68 @@
 
   <!-- Movie Grid -->
   <section class="movie-grid" *ngIf="movies.length > 0">
-    <article *ngFor="let movie of movies; let i = index" class="movie-card">
-      ...
+    <article *ngFor="let movie of movies" class="movie-card">
+      <img
+        [src]="imageUrl(movie.poster_path)"
+        alt="Stream {{ movie.title || movie.name }} for free online"
+        class="movie-poster"
+        loading="lazy"
+      />
+      <div class="movie-info">
+        <h2 class="movie-title">{{ movie.title || movie.name }}</h2>
+        <p class="movie-date">
+          Released: {{ movie.release_date || movie.first_air_date | date: 'mediumDate' }}
+        </p>
+        <p *ngIf="movie?.overview" class="movie-overview">
+          {{ movie.overview }}
+        </p>
+        <p class="movie-rating">
+          <i class="bi bi-star-fill" style="color: #ffcc00;"></i>
+          {{ movie.vote_average ? (movie.vote_average | number: '1.1-1') : 'N/A' }} / 10
+        </p>
+        <a
+          [routerLink]="['/', movie.media_type || 'movie', movie.id]"
+          class="watch-button"
+        >
+          <i class="bi bi-play-fill"></i> Watch Free
+        </a>
+      </div>
     </article>
 
-    <!-- ✅ Ad 2: Inside movie grid -->
+    <!-- ✅ In-content ad after some movies -->
     <ins class="adsbygoogle"
-         style="display:block; text-align:center; margin:1rem 0;"
+         style="display:block; text-align:center; margin: 20px 0;"
          data-ad-client="ca-pub-7437659953406580"
-         data-ad-slot="9876543210"
+         data-ad-slot="0987654321"
          data-ad-format="fluid"
-         data-ad-layout="in-article"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
   </section>
 
   <!-- SEO Footer Content -->
   <section class="seo-text">
-    ...
-  </section>
+    <h2>Why Choose StreamDay to Stream Movies for Free?</h2>
+    <p>
+      At <strong>StreamDay</strong>, you can <em>watch movies online for free</em> and enjoy 
+      unlimited access to TV shows without subscriptions. From action and adventure to comedy, drama, 
+      documentaries, and anime – our library has something for everyone.
+    </p>
+    <p>
+      Whether you’re looking for the latest blockbusters or timeless classics, StreamDay makes it easy 
+      to <em>stream movies free online</em> in high quality. No fees, no sign-ups – just instant streaming.
+    </p>
 
-  <!-- ✅ Ad 3: Bottom of page -->
-  <ins class="adsbygoogle"
-       style="display:block; text-align:center; margin:1rem 0;"
-       data-ad-client="ca-pub-7437659953406580"
-       data-ad-slot="1122334455"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
-  <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    <!-- ✅ Ad before footer ends -->
+    <ins class="adsbygoogle"
+         style="display:block; text-align:center; margin: 20px 0;"
+         data-ad-client="ca-pub-7437659953406580"
+         data-ad-slot="1122334455"
+         data-ad-format="auto"
+         data-full-width-responsive="true"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+  </section>
 </div>
