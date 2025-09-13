@@ -18,22 +18,21 @@
       Rating: {{ movie.vote_average | number:'1.1-1' }} / 10
     </p>
 
-    <!-- Official Trailer (YouTube embed if available) -->
-    <div *ngIf="trailerUrl; else noTrailer" class="trailer-container">
+    <!-- Streaming Section -->
+    <div *ngIf="streamingAvailable; else noStream" class="trailer-container">
       <iframe
-        [src]="trailerUrl! | safeUrl"
+        [src]="streamUrl | safeUrl"
         allowfullscreen
         frameborder="0"
         width="100%"
         height="500"
-        title="Official Trailer"
+        title="Official Stream"
         style="border: none;"
       ></iframe>
     </div>
 
-    <!-- No Trailer -->
-    <ng-template #noTrailer>
-      <p class="no-stream">Official trailer not available.</p>
+    <ng-template #noStream>
+      <p class="no-stream">Streaming not available for this title.</p>
     </ng-template>
 
     <!-- Extra Editorial Content -->
