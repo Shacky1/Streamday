@@ -1,11 +1,11 @@
 <div class="home-container">
   <!-- Main SEO Heading -->
-  <h1 class="home-title">Stream Movies for Free & Watch TV Shows Online</h1>
+  <h1 class="home-title">Discover Movies & TV Shows Online</h1>
 
   <p class="intro-text">
-    Welcome to <strong>StreamDay</strong> – your #1 platform to <em>stream movies for free</em> 
-    and enjoy unlimited access to TV shows online. Explore the latest releases, discover trending 
-    films, and watch high-quality content at no cost.
+    Welcome to <strong>StreamDay</strong> – your trusted platform to explore the latest 
+    movies and trending TV shows. Browse upcoming releases, read reviews, check ratings, 
+    and find where to watch legally online.
   </p>
 
   <!-- ✅ AdSense Ad after intro -->
@@ -23,7 +23,7 @@
       type="text"
       [(ngModel)]="query"
       name="query"
-      placeholder="Search free movies or TV shows..."
+      placeholder="Search movies or TV shows..."
       class="search-input"
       autocomplete="off"
       aria-label="Search movies"
@@ -41,7 +41,7 @@
 
   <!-- No Results -->
   <div *ngIf="movies.length === 0 && query.trim() !== ''" class="no-results">
-    No results found for "{{ query }}". Try searching other <strong>free streaming movies</strong> or TV shows.
+    No results found for "{{ query }}". Try searching for other movies or TV shows.
   </div>
 
   <!-- Movie Grid -->
@@ -49,14 +49,14 @@
     <article *ngFor="let movie of movies" class="movie-card">
       <img
         [src]="imageUrl(movie.poster_path)"
-        alt="Stream {{ movie.title || movie.name }} for free online"
+        alt="{{ movie.title || movie.name }} official poster"
         class="movie-poster"
         loading="lazy"
       />
       <div class="movie-info">
         <h2 class="movie-title">{{ movie.title || movie.name }}</h2>
         <p class="movie-date">
-          Released: {{ movie.release_date || movie.first_air_date | date: 'mediumDate' }}
+          Release Date: {{ movie.release_date || movie.first_air_date | date: 'mediumDate' }}
         </p>
         <p *ngIf="movie?.overview" class="movie-overview">
           {{ movie.overview }}
@@ -69,7 +69,7 @@
           [routerLink]="['/', movie.media_type || 'movie', movie.id]"
           class="watch-button"
         >
-          <i class="bi bi-play-fill"></i> Watch Free
+          <i class="bi bi-play-fill"></i> View Details
         </a>
       </div>
     </article>
@@ -84,17 +84,26 @@
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </section>
 
-  <!-- SEO Footer Content -->
+  <!-- Editorial Content for SEO -->
   <section class="seo-text">
-    <h2>Why Choose StreamDay to Stream Movies for Free?</h2>
+    <h2>Why Use StreamDay?</h2>
     <p>
-      At <strong>StreamDay</strong>, you can <em>watch movies online for free</em> and enjoy 
-      unlimited access to TV shows without subscriptions. From action and adventure to comedy, drama, 
-      documentaries, and anime – our library has something for everyone.
+      At <strong>StreamDay</strong>, we help movie lovers and TV fans stay updated with the latest 
+      releases and trending titles. Our platform makes it easy to discover what’s popular, 
+      explore genres, and get quick access to ratings and trailers.
     </p>
+
+    <h3>Top Features</h3>
+    <ul>
+      <li>✔ Browse by genre, release date, or popularity</li>
+      <li>✔ Get accurate ratings and reviews</li>
+      <li>✔ Watch official trailers before deciding</li>
+      <li>✔ Find where to watch movies legally online</li>
+    </ul>
+
     <p>
-      Whether you’re looking for the latest blockbusters or timeless classics, StreamDay makes it easy 
-      to <em>stream movies free online</em> in high quality. No fees, no sign-ups – just instant streaming.
+      Whether you’re looking for a weekend binge, family-friendly films, or the next blockbuster, 
+      StreamDay brings you reliable information all in one place.
     </p>
 
     <!-- ✅ Ad before footer ends -->
@@ -106,4 +115,14 @@
          data-full-width-responsive="true"></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </section>
+
+  <!-- Disclaimer -->
+  <footer class="disclaimer">
+    <p>
+      <strong>Disclaimer:</strong> StreamDay does not host or provide unauthorized movie streams. 
+      All movie data, posters, and metadata are provided by 
+      <a href="https://www.themoviedb.org/" target="_blank" rel="noopener">The Movie Database (TMDb)</a>. 
+      We only share trailers, reviews, and information to help users discover where to watch movies legally.
+    </p>
+  </footer>
 </div>
