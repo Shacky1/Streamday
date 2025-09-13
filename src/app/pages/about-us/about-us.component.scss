@@ -4,48 +4,46 @@
 .about-us-container {
   padding: 2rem;
   background-color: var(--color-bg-dark);
-  color: white;
+  color: #fff;
   font-family: 'Arial', sans-serif;
+  line-height: 1.6;
 }
 
 .about-us-container h1 {
   text-align: center;
   color: var(--color-primary);
-  margin-bottom: 1rem;
-  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  font-size: 2.4rem;
   font-weight: bold;
 }
 
 .about-us-container p {
   text-align: center;
-  max-width: 700px;
-  margin: 0 auto 2rem auto;
+  max-width: 750px;
+  margin: 0 auto 2rem;
   color: #ccc;
   font-size: 1rem;
-  line-height: 1.6;
 }
 
+/* Sections */
 .about-us-container section {
-  margin-bottom: 2rem;
+  margin-bottom: 2.5rem;
 }
 
-/* Section Headings with Icons - Centered */
 .about-us-container h2 {
   color: var(--color-primary);
-  font-size: 1.5rem;
-  margin-bottom: 0.75rem;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
 
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  gap: 0.5rem;
-
   justify-content: center;
-  width: 100%;
+  gap: 0.6rem;
   text-align: center;
 }
 
 .about-us-container h2 i {
-  font-size: 1.4rem;
+  font-size: 1.5rem;
 }
 
 /* ===============================
@@ -53,101 +51,102 @@
    =============================== */
 .developer-profile {
   background-color: var(--color-bg-card);
-  padding: 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+  padding: 2rem;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
   transition: transform 0.3s ease;
 }
 
 .developer-profile:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
 }
 
-.developer-profile .profile-card {
+.profile-card {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Profile Image */
-.developer-profile .profile-img {
-  width: 150px;
-  height: 150px;
+.profile-img {
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--color-primary);
-  box-shadow: 0 0 15px rgba(255,255,255,0.1);
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
 }
 
 /* ===============================
    Profile Details
    =============================== */
-.developer-profile .profile-details {
+.profile-details {
   flex: 1;
-}
-
-.developer-profile .profile-details h3 {
-  margin: 0;
-  color: var(--color-primary);
-  font-size: 1.6rem;
+  min-width: 250px;
   text-align: center;
 }
 
-.developer-profile .profile-details .role {
+.profile-details h3 {
+  margin: 0 0 0.4rem;
+  color: var(--color-primary);
+  font-size: 1.7rem;
+}
+
+.profile-details .role {
   font-size: 1.1rem;
   color: #ddd;
-  margin-bottom: 0.5rem;
-  text-align: center;
+  margin-bottom: 0.75rem;
 }
 
-.developer-profile .profile-details .bio {
+.profile-details .bio {
   font-size: 0.95rem;
   color: #ccc;
-  margin-bottom: 1rem;
-  line-height: 1.5;
-  text-align: center;
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
 }
 
-/* Education Styling */
-.developer-profile .education-list {
+/* ===============================
+   Education
+   =============================== */
+.education-list {
   list-style: none;
-  padding-left: 0;
-  margin: 0 0 1rem 0;
+  padding: 0;
+  margin: 0 0 1.5rem;
 }
 
-.developer-profile .education-list li {
-  margin-bottom: 0.5rem;
-  text-align: center;
+.education-list li {
+  margin-bottom: 0.8rem;
 }
 
-.developer-profile .education-list h5 {
+.education-list h5 {
   margin: 0;
   font-size: 1rem;
   color: #fff;
 }
 
-.developer-profile .education-list p {
+.education-list p {
   margin: 0.2rem 0;
   font-size: 0.85rem;
   color: #bbb;
 }
 
 /* ===============================
-   Skills List
+   Skills
    =============================== */
-.developer-profile .skills-list {
+.skills-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.6rem;
   list-style: none;
-  padding-left: 0;
+  padding: 0;
   margin-top: 1rem;
 }
 
-.developer-profile .skills-list li {
-  background: rgba(255, 255, 255, 0.05);
-  padding: 0.5rem 0.7rem;
+.skills-list li {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.6rem 0.8rem;
   border-radius: 8px;
   text-align: center;
   color: #ddd;
@@ -155,26 +154,26 @@
   transition: background 0.3s, transform 0.3s;
 }
 
-.developer-profile .skills-list li:hover {
+.skills-list li:hover {
   background: var(--color-primary);
   color: #fff;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
 /* ===============================
-   Contact Links (Email, WhatsApp, GitHub, LinkedIn)
+   Contact Links
    =============================== */
-.developer-profile .contact-links {
+.contact-links {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
-  padding: 0;
-  margin: 1rem 0;
   justify-content: center;
+  padding: 0;
+  margin: 1.5rem 0;
 }
 
-.developer-profile .contact-links li a {
+.contact-links li a {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -184,36 +183,48 @@
   transition: transform 0.3s, color 0.3s;
 }
 
-.developer-profile .contact-links li a:hover {
-  transform: scale(1.15);
+.contact-links li a:hover {
+  transform: scale(1.2);
 }
 
-.developer-profile .contact-links small {
+.contact-links small {
   font-size: 0.75rem;
   color: #aaa;
   margin-top: 0.25rem;
 }
 
 /* Brand-specific hover colors */
-.bi-envelope-fill:hover { color: #d93025; }  /* Gmail red */
-.bi-whatsapp:hover { color: #25d366; }       /* WhatsApp green */
-.bi-github:hover { color: #333; }            /* GitHub dark */
-.bi-linkedin:hover { color: #0077b5; }       /* LinkedIn blue */
+.bi-envelope-fill:hover { color: #d93025; }  /* Gmail */
+.bi-whatsapp:hover { color: #25d366; }       /* WhatsApp */
+.bi-github:hover { color: #333; }            /* GitHub */
+.bi-linkedin:hover { color: #0077b5; }       /* LinkedIn */
 
 /* ===============================
-   Responsive Design
+   Footer Disclaimer
+   =============================== */
+.disclaimer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  text-align: center;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.disclaimer a {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+
+/* ===============================
+   Responsive
    =============================== */
 @media (max-width: 768px) {
-  .developer-profile .profile-card {
+  .profile-card {
     flex-direction: column;
-    align-items: center;
   }
 
-  .developer-profile .profile-details {
-    text-align: center;
-  }
-
-  .developer-profile .skills-list {
+  .skills-list {
     grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   }
 }
