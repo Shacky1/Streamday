@@ -1,6 +1,6 @@
 /* 🌌 Home Container */
 .home-container {
-  background: radial-gradient(circle at top, #0d1117 0%, #1a202c 80%);
+  background: radial-gradient(circle at top, #0d1117 0%, #1a202c 85%);
   min-height: 100vh;
   padding: 3rem 1.5rem;
   color: #ffffff;
@@ -12,7 +12,7 @@
   position: relative;
 }
 
-/* 🎥 Floating glow effect background */
+/* 🎥 Floating Glow Background */
 .home-container::before {
   content: "";
   position: absolute;
@@ -22,9 +22,9 @@
   z-index: 0;
 }
 
-/* ✨ Title Animation */
+/* ✨ Title */
 .home-title {
-  font-size: 2.75rem;
+  font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 700;
   text-align: center;
   letter-spacing: 1.5px;
@@ -40,7 +40,7 @@
 
 /* 🌟 Intro Text */
 .intro-text {
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
   color: #cbd5e0;
   text-align: center;
   line-height: 1.7;
@@ -51,23 +51,25 @@
   position: relative;
 }
 
-/* 🔍 Search Form */
+/* 🔍 Search Form Container */
 .search-form {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
   align-items: center;
-  margin-bottom: 2.5rem;
+  margin: 0 auto 2.5rem;
   z-index: 1;
   position: relative;
   animation: fadeUp 1.5s ease;
+  max-width: 900px;
+  width: 100%;
 }
 
-/* 🎚️ Input & Select */
+/* 🎚️ Inputs and Selects */
 .search-input,
 .genre-select {
-  padding: 0.8rem 1rem;
+  padding: 0.85rem 1rem;
   border-radius: 12px;
   border: none;
   background-color: rgba(45, 55, 72, 0.9);
@@ -92,7 +94,7 @@
 
 /* 🎯 Search Button */
 .search-button {
-  padding: 0.8rem 1.8rem;
+  padding: 0.9rem 2rem;
   background: linear-gradient(90deg, #ff0055, #ff6600);
   border: none;
   border-radius: 12px;
@@ -101,6 +103,11 @@
   cursor: pointer;
   transition: all 0.35s ease;
   box-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
 .search-button:hover {
@@ -109,17 +116,39 @@
   box-shadow: 0 0 25px rgba(255, 102, 0, 0.6);
 }
 
-/* ⚙️ Responsive Search Form */
+/* ⚙️ Tablet Responsive */
+@media (max-width: 992px) {
+  .search-form {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .search-input,
+  .genre-select {
+    flex: 1 1 45%;
+  }
+
+  .search-button {
+    flex: 1 1 100%;
+  }
+}
+
+/* 📱 Mobile Responsive */
 @media (max-width: 768px) {
   .search-form {
     flex-direction: column;
     align-items: stretch;
+    gap: 1rem;
   }
 
   .search-input,
   .genre-select,
   .search-button {
     width: 100%;
+  }
+
+  .search-button {
+    font-size: 1.05rem;
   }
 }
 
@@ -155,7 +184,7 @@
 }
 
 .movie-card:hover {
-  transform: translateY(-12px);
+  transform: translateY(-10px);
   box-shadow: 0 12px 28px rgba(255, 102, 0, 0.35);
 }
 
@@ -238,7 +267,7 @@
   box-shadow: 0 0 25px rgba(255, 102, 0, 0.6);
 }
 
-/* 📚 SEO Text / Editorial Info */
+/* 📚 SEO Text */
 .seo-text {
   margin-top: 4rem;
   padding: 2.5rem 1.8rem;
