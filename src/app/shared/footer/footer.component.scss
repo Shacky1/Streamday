@@ -1,11 +1,27 @@
+/* 🌌 Streamday Footer */
 .footer {
-  background-color: var(--color-bg-navbar);
-  color: var(--color-text-muted);
-  padding: 2rem 1.5rem 1rem;
-  font-size: 0.9rem;
-  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #0d1117 0%, #1a202c 90%);
+  color: #cbd5e0;
+  padding: 3rem 1.5rem 1.5rem;
+  font-size: 0.95rem;
+  font-family: "Poppins", Arial, sans-serif;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  animation: fadeIn 1.4s ease-in;
 }
 
+/* ✨ Glowing background overlay */
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(255, 102, 0, 0.08), transparent 75%);
+  filter: blur(90px);
+  z-index: 0;
+}
+
+/* 🎬 Footer layout */
 .footer-content {
   display: flex;
   flex-wrap: wrap;
@@ -13,23 +29,32 @@
   gap: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 1.3s ease;
 }
 
+/* 📂 Footer sections */
 .footer-section {
-  flex: 1 1 200px;
+  flex: 1 1 250px;
+  min-width: 200px;
 }
 
 .footer-section h4 {
-  color: var(--color-text-light);
-  margin-bottom: 0.75rem;
+  color: #ff6600;
   font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 8px rgba(255, 102, 0, 0.4);
+  position: relative;
 }
 
 .footer-section p {
-  line-height: 1.4;
+  line-height: 1.6;
+  color: #cbd5e0;
 }
 
-/* Contact list styling */
+/* 📬 Contact list */
 .footer-section ul {
   list-style: none;
   padding: 0;
@@ -37,12 +62,17 @@
 }
 
 .footer-section ul li {
-  margin-bottom: 0.5rem;
-  color: var(--color-text-muted);
+  margin-bottom: 0.6rem;
+  color: #a0aec0;
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-/* Social Icons container */
+.footer-section ul li:hover {
+  color: #ff6600;
+}
+
+/* 💫 Social icons */
 .social-icons {
   display: flex;
   gap: 1rem;
@@ -50,52 +80,74 @@
   flex-wrap: wrap;
 }
 
-/* Each social link styling */
 .social-icons a {
-  color: var(--color-text-muted);
+  color: #cbd5e0;
   font-size: 1.5rem;
   display: inline-flex;
   align-items: center;
-  gap: 0.3rem;
-  font-weight: 600;
-  text-decoration: none;
-  transition: color 0.3s ease;
+  justify-content: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  background: rgba(255, 102, 0, 0.1);
+  box-shadow: 0 0 12px rgba(255, 102, 0, 0.25);
+  transition: all 0.35s ease;
 }
 
-/* Hover effect on social icons and text */
 .social-icons a:hover {
-  color: var(--color-primary);
-  text-decoration: underline;
+  color: #fff;
+  background: linear-gradient(90deg, #ff0055, #ff6600);
+  box-shadow: 0 0 20px rgba(255, 102, 0, 0.6);
+  transform: translateY(-4px) scale(1.1);
 }
 
-/* Align icon and text */
-.social-icons a i {
-  font-size: 1.5rem;
-  line-height: 1;
-}
-
-/* Footer bottom */
+/* 🧭 Footer bottom */
 .footer-bottom {
   text-align: center;
-  margin-top: 1.5rem;
+  margin-top: 2.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 1rem;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
+  color: #a0aec0;
+  z-index: 1;
+  position: relative;
+  animation: fadeUp 1.6s ease;
 }
 
-/* Responsive adjustments for small screens */
-@media (max-width: 600px) {
+.footer-bottom p {
+  margin: 0;
+}
+
+.footer-bottom p span {
+  color: #ff6600;
+  font-weight: 600;
+}
+
+/* 📱 Responsive design */
+@media (max-width: 768px) {
   .footer-content {
     flex-direction: column;
-    gap: 1.5rem;
+    align-items: flex-start;
+    gap: 2rem;
   }
 
   .footer-section {
     flex: 1 1 100%;
   }
 
-  /* Social icons row stacks vertically on small */
   .social-icons {
-    justify-content: flex-start;
+    justify-content: center;
+    margin-top: 1rem;
   }
+}
+
+/* ✨ Animations (reuse from main theme) */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
 }

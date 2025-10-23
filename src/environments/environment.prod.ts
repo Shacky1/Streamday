@@ -1,7 +1,7 @@
-// environment.prod.ts (production)
+
 export const environment = {
   production: true,
-  tmdbApiKey: '$TMDB_API_KEY',
-  tmdbBaseUrl: '$TMDB_BASE_URL',
-  tmdbImageBaseUrl: '$TMDB_IMAGE_BASE_URL'
+  tmdbApiKey: 'undefined',
+  tmdbBaseUrl: 'https://api.themoviedb.org/3',
+  tmdbImageBaseUrl: 'https://image.tmdb.org/t/p/w500'
 };

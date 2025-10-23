@@ -1,111 +1,174 @@
-/* ===============================
-   Root Colors (Customize as needed)
-   =============================== */
+/* ======================================
+   🌈 Root Colors (StreamDay Theme)
+   ====================================== */
 :root {
-  --color-bg-dark: #121212;
+  --color-bg-dark: #0d1117;
   --color-bg-card: #1e1e1e;
-  --color-primary: #ff6f61;
-  --color-text-light: #ccc;
+  --color-primary: #ff6600;
+  --color-accent: #ff3366;
+  --color-text-light: #e0e0e0;
+  --color-text-muted: #a0aec0;
+  --color-shadow: rgba(0, 0, 0, 0.5);
 }
 
-/* ===============================
-   About Section Container + Titles
-   =============================== */
+/* ======================================
+   🎬 About Section Container
+   ====================================== */
 .about-us-container {
-  padding: 2rem;
-  background-color: var(--color-bg-dark);
+  background: linear-gradient(180deg, var(--color-bg-dark) 0%, #151a24 100%);
+  padding: 3rem 1.5rem;
+  font-family: "Poppins", Arial, sans-serif;
   color: var(--color-text-light);
-  font-family: 'Arial', sans-serif;
-  line-height: 1.6;
+  line-height: 1.8;
+  max-width: 1100px;
+  margin: 0 auto;
+  animation: fadeIn 1.2s ease;
+  position: relative;
+  overflow: hidden;
 }
 
+.about-us-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(255, 102, 0, 0.07), transparent 70%);
+  z-index: 0;
+}
+
+/* ======================================
+   🎞️ Headings & Intro
+   ====================================== */
 .about-us-container h1 {
   text-align: center;
-  color: var(--color-primary);
-  margin-bottom: 1.5rem;
-  font-size: 2.4rem;
-  font-weight: bold;
+  font-size: 2.7rem;
+  font-weight: 800;
+  margin-bottom: 1.8rem;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: slideDown 1s ease-in-out;
+  text-shadow: 0 0 25px rgba(255, 102, 0, 0.25);
+  position: relative;
+  z-index: 1;
 }
 
 .about-us-container p {
   text-align: center;
-  max-width: 750px;
-  margin: 0 auto 2rem;
-  color: #ccc;
-  font-size: 1rem;
+  max-width: 780px;
+  margin: 0 auto 2.2rem;
+  color: var(--color-text-muted);
+  font-size: 1.05rem;
+  animation: fadeUp 1.3s ease;
+  z-index: 1;
 }
 
-/* ===============================
-   Section Headings
-   =============================== */
+/* ======================================
+   🎯 Section Titles
+   ====================================== */
 .about-us-container section {
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  animation: fadeUp 1.4s ease;
 }
 
 .about-us-container h2 {
+  font-size: 1.8rem;
   color: var(--color-primary);
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
-  display: flex;
+  font-weight: 700;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  text-align: center;
+  margin-bottom: 1.2rem;
+  text-shadow: 0 0 15px rgba(255, 102, 0, 0.3);
 }
 
 .about-us-container h2 i {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
+  color: var(--color-accent);
+  animation: pulse 2s infinite;
 }
 
-/* ===============================
-   Platform Values List
-   =============================== */
+/* ======================================
+   🎬 Platform Values List
+   ====================================== */
 .platform-values ul {
-  list-style: disc inside;
-  max-width: 650px;
-  margin: 1rem auto 0;
+  list-style: none;
   padding: 0;
-  color: #ccc;
+  margin: 1rem auto;
+  max-width: 700px;
+  color: var(--color-text-light);
 }
 
 .platform-values li {
-  margin-bottom: 0.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  margin: 0.7rem 0;
+  padding: 0.8rem 1.2rem;
+  border-radius: 10px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 10px var(--color-shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
-/* ===============================
-   Developer Profile Card
-   =============================== */
+.platform-values li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(255, 102, 0, 0.3);
+  color: #fff;
+}
+
+.platform-values a {
+  color: var(--color-accent);
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+.platform-values a:hover {
+  color: var(--color-primary);
+}
+
+/* ======================================
+   👨‍💻 Developer Profile Card
+   ====================================== */
 .developer-profile {
-  background-color: var(--color-bg-card);
-  padding: 2rem;
-  border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.45);
-  transition: transform 0.3s ease;
+  background: rgba(30, 30, 30, 0.95);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .developer-profile:hover {
-  transform: translateY(-6px);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(255, 102, 0, 0.25);
 }
 
 .profile-card {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  gap: 2rem;
   align-items: center;
   justify-content: center;
 }
 
-/* Profile Image */
+/* 🖼️ Profile Image */
 .profile-img {
-  width: 160px;
-  height: 160px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid var(--color-primary);
-  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+  box-shadow: 0 0 20px rgba(255, 102, 0, 0.4);
+  transition: transform 0.4s ease;
 }
 
-/* Profile Details */
+.profile-img:hover {
+  transform: scale(1.05);
+}
+
+/* 💬 Profile Details */
 .profile-details {
   flex: 1;
   min-width: 250px;
@@ -113,29 +176,29 @@
 }
 
 .profile-details h3 {
-  margin: 0 0 0.4rem;
+  font-size: 1.8rem;
   color: var(--color-primary);
-  font-size: 1.7rem;
+  margin-bottom: 0.4rem;
+  font-weight: 700;
 }
 
 .profile-details .role {
   font-size: 1.1rem;
-  color: #ddd;
-  margin-bottom: 0.75rem;
+  color: var(--color-accent);
+  margin-bottom: 0.8rem;
 }
 
 .profile-details .bio {
   font-size: 0.95rem;
-  color: #ccc;
-  margin-bottom: 1.2rem;
-  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
 }
 
-/* Education */
+/* 🎓 Education */
 .education-list {
   list-style: none;
   padding: 0;
-  margin: 0 0 1.5rem;
+  margin: 0 0 1.8rem;
 }
 
 .education-list li {
@@ -144,113 +207,120 @@
 
 .education-list h5 {
   margin: 0;
-  font-size: 1rem;
   color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
 }
 
 .education-list p {
-  margin: 0.2rem 0;
-  font-size: 0.85rem;
-  color: #bbb;
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
 }
 
-/* Skills */
+/* 🧠 Skills */
 .skills-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-  gap: 0.6rem;
+  gap: 0.75rem;
   list-style: none;
   padding: 0;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .skills-list li {
-  background: rgba(255, 255, 255, 0.06);
-  padding: 0.6rem 0.8rem;
-  border-radius: 8px;
-  text-align: center;
+  background: rgba(255, 255, 255, 0.07);
+  padding: 0.7rem;
+  border-radius: 10px;
   color: #ddd;
   font-size: 0.9rem;
-  transition: background 0.3s, transform 0.3s;
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: default;
 }
 
 .skills-list li:hover {
-  background: var(--color-primary);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
   color: #fff;
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  box-shadow: 0 0 20px rgba(255, 102, 0, 0.4);
 }
 
-/* Contact Links */
+/* 🔗 Contact Links */
 .contact-links {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
   justify-content: center;
+  margin: 1.8rem 0;
   padding: 0;
-  margin: 1.5rem 0;
 }
 
 .contact-links li a {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 1.6rem;
   color: var(--color-primary);
+  font-size: 1.8rem;
   text-decoration: none;
-  transition: transform 0.3s, color 0.3s;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 .contact-links li a:hover {
   transform: scale(1.2);
+  color: var(--color-accent);
 }
 
 .contact-links small {
-  font-size: 0.75rem;
-  color: #aaa;
-  margin-top: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: 0.3rem;
 }
 
-/* Brand-specific hover colors */
-.bi-envelope-fill:hover { color: #d93025; }  /* Gmail */
-.bi-whatsapp:hover { color: #25d366; }       /* WhatsApp */
-.bi-github:hover { color: #333; }           /* GitHub */
-.bi-linkedin:hover { color: #0077b5; }      /* LinkedIn */
+/* 🧭 Brand Hover Colors */
+.bi-envelope-fill:hover { color: #d93025; }
+.bi-whatsapp:hover { color: #25d366; }
+.bi-github:hover { color: #999; }
+.bi-linkedin:hover { color: #0077b5; }
 
-/* Footer Disclaimer */
+/* ⚖️ Disclaimer */
 .disclaimer {
-  margin-top: 2rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   text-align: center;
-  font-size: 0.85rem;
-  color: #aaa;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
 }
 
 .disclaimer a {
-  color: var(--color-primary);
+  color: var(--color-accent);
   text-decoration: underline;
+  transition: color 0.3s;
 }
 
-/* Responsive */
+.disclaimer a:hover {
+  color: var(--color-primary);
+}
+
+/* 📱 Responsive Design */
 @media (max-width: 768px) {
   .profile-card {
     flex-direction: column;
+    text-align: center;
   }
 
-  .skills-list {
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  .profile-img {
+    width: 140px;
+    height: 140px;
   }
 
   .about-us-container h1 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .about-us-container h2 {
-    font-size: 1.4rem;
-  }
-
-  .profile-details h3 {
     font-size: 1.5rem;
   }
 }
@@ -264,4 +334,25 @@
   .skills-list {
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   }
+}
+
+/* ✨ Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
 }

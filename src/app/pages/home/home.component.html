@@ -8,7 +8,7 @@
     and find where to watch legally online.
   </p>
 
-  <!-- ✅ AdSense Ad after intro -->
+  <!-- AdSense Ad after intro -->
   <ins class="adsbygoogle"
        style="display:block; text-align:center; margin: 20px 0;"
        data-ad-client="ca-pub-7437659953406580"
@@ -18,26 +18,37 @@
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
   <!-- Search Form -->
-  <form (submit)="searchMovies(); $event.preventDefault()" class="search-form" role="search">
-    <input
-      type="text"
-      [(ngModel)]="query"
-      name="query"
-      placeholder="Search movies or TV shows..."
-      class="search-input"
-      autocomplete="off"
-      aria-label="Search movies"
-    />
+<form
+  (submit)="searchMovies(); $event.preventDefault()"
+  class="search-form"
+  role="search"
+  aria-label="Search movies and TV shows"
+>
+  <input
+    type="text"
+    [(ngModel)]="query"
+    name="query"
+    placeholder="Search movies or TV shows..."
+    class="search-input"
+    autocomplete="off"
+    aria-label="Search input"
+  />
 
-    <select [(ngModel)]="selectedGenre" name="genre" class="genre-select" (change)="getMoviesByGenre()">
-      <option value="">All Genres</option>
-      <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
-    </select>
+  <select
+    [(ngModel)]="selectedGenre"
+    name="genre"
+    class="genre-select"
+    (change)="getMoviesByGenre()"
+    aria-label="Select genre"
+  >
+    <option value="">All Genres</option>
+    <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
+  </select>
 
-    <button type="submit" class="search-button">
-      <i class="bi bi-search"></i> Search
-    </button>
-  </form>
+  <button type="submit" class="search-button">
+    <i class="bi bi-search"></i> Search
+  </button>
+</form>
 
   <!-- No Results -->
   <div *ngIf="movies.length === 0 && query.trim() !== ''" class="no-results">
