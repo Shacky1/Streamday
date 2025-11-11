@@ -1,139 +1,268 @@
 <div class="home-container">
-  <!-- Main SEO Heading -->
   <h1 class="home-title">Discover Movies & TV Shows Online</h1>
 
   <p class="intro-text">
-    Welcome to <strong>StreamDay</strong> – your trusted platform to explore the latest 
-    movies and trending TV shows. Browse upcoming releases, read reviews, check ratings, 
+    Welcome to <strong>StreamDay</strong> – your trusted platform to explore the latest
+    movies and trending TV shows. Browse upcoming releases, read reviews, check ratings,
     and find where to watch legally online.
   </p>
 
-  <!-- AdSense Ad after intro -->
-  <ins class="adsbygoogle"
-       style="display:block; text-align:center; margin: 20px 0;"
-       data-ad-client="ca-pub-7437659953406580"
-       data-ad-slot="1234567890"
-       data-ad-format="auto"
-       data-full-width-responsive="true"></ins>
+  <ins
+    class="adsbygoogle"
+    style="display: block; text-align: center; margin: 20px 0"
+    data-ad-client="ca-pub-7437659953406580"
+    data-ad-slot="1234567890"
+    data-ad-format="auto"
+    data-full-width-responsive="true"
+  ></ins>
   <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
 
-  <!-- Search Form -->
-<form
-  (submit)="searchMovies(); $event.preventDefault()"
-  class="search-form"
-  role="search"
-  aria-label="Search movies and TV shows"
->
-  <input
-    type="text"
-    [(ngModel)]="query"
-    name="query"
-    placeholder="Search movies or TV shows..."
-    class="search-input"
-    autocomplete="off"
-    aria-label="Search input"
-  />
-
-  <select
-    [(ngModel)]="selectedGenre"
-    name="genre"
-    class="genre-select"
-    (change)="getMoviesByGenre()"
-    aria-label="Select genre"
+  <form
+    (submit)="searchMovies(); $event.preventDefault()"
+    class="search-form"
+    role="search"
+    aria-label="Search movies and TV shows"
   >
-    <option value="">All Genres</option>
-    <option *ngFor="let genre of genres" [value]="genre.id">{{ genre.name }}</option>
-  </select>
+    <input
+      type="text"
+      [(ngModel)]="query"
+      name="query"
+      placeholder="Search movies or TV shows..."
+      class="search-input"
+      autocomplete="off"
+      aria-label="Search input"
+    />
 
-  <button type="submit" class="search-button">
-    <i class="bi bi-search"></i> Search
-  </button>
-</form>
+    <select
+      [(ngModel)]="selectedGenre"
+      name="genre"
+      class="genre-select"
+      (change)="getMoviesByGenre()"
+      aria-label="Select genre"
+    >
+      <option value="">All Genres</option>
+      <option *ngFor="let genre of genres" [value]="genre.id">
+        {{ genre.name }}
+      </option>
+    </select>
 
-  <!-- No Results -->
-  <div *ngIf="movies.length === 0 && query.trim() !== ''" class="no-results">
-    No results found for "{{ query }}". Try searching for other movies or TV shows.
-  </div>
+    <button type="submit" class="search-button">
+      <i class="bi bi-search"></i> Search
+    </button>
+  </form>
 
-  <!-- Movie Grid -->
-  <section class="movie-grid" *ngIf="movies.length > 0">
-    <article *ngFor="let movie of movies" class="movie-card">
-      <img
-        [src]="imageUrl(movie.poster_path)"
-        alt="{{ movie.title || movie.name }} official poster"
-        class="movie-poster"
-        loading="lazy"
-      />
-      <div class="movie-info">
-        <h2 class="movie-title">{{ movie.title || movie.name }}</h2>
-        <p class="movie-date">
-          Release Date: {{ movie.release_date || movie.first_air_date | date: 'mediumDate' }}
-        </p>
-        <p *ngIf="movie?.overview" class="movie-overview">
-          {{ movie.overview }}
-        </p>
-        <p class="movie-rating">
-          <i class="bi bi-star-fill" style="color: #ffcc00;"></i>
-          {{ movie.vote_average ? (movie.vote_average | number: '1.1-1') : 'N/A' }} / 10
-        </p>
-        <a
-          [routerLink]="['/', movie.media_type || 'movie', movie.id]"
-          class="watch-button"
-        >
-          <i class="bi bi-play-fill"></i> View Details
-        </a>
-      </div>
-    </article>
+  <ng-container *ngIf="query.trim() || selectedGenre">
+    <h2 class="category-title">
+      {{ query.trim() ? 'Search Results' : 'Filtered by Genre' }}
+    </h2>
+    <div *ngIf="movies.length === 0" class="no-results">
+      No results found for "{{ query }}" or the selected genre.
+    </div>
 
-    <!-- ✅ In-content ad between movies -->
-    <ins class="adsbygoogle"
-         style="display:block; text-align:center; margin: 20px 0;"
-         data-ad-client="ca-pub-7437659953406580"
-         data-ad-slot="0987654321"
-         data-ad-format="fluid"
-         data-full-width-responsive="true"></ins>
-    <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-  </section>
+    <section class="movie-grid" *ngIf="movies.length > 0">
+      <article *ngFor="let movie of movies" class="movie-card">
+        <img
+          [src]="imageUrl(movie.poster_path)"
+          alt="{{ movie.title || movie.name }} official poster"
+          class="movie-poster"
+          loading="lazy"
+        />
+        <div class="movie-info">
+          <h2 class="movie-title">{{ movie.title || movie.name }}</h2>
+          <p class="movie-date">
+            Release Date:
+            {{ movie.release_date || movie.first_air_date | date : 'mediumDate' }}
+          </p>
+          <p *ngIf="movie?.overview" class="movie-overview">
+            {{ movie.overview }}
+          </p>
+          <p class="movie-rating">
+            <i class="bi bi-star-fill" style="color: #ffcc00"></i>
+            {{ movie.vote_average ? (movie.vote_average | number : '1.1-1') : 'N/A' }}
+            / 10
+          </p>
+          <a
+            [routerLink]="['/', movie.media_type || 'movie', movie.id]"
+            class="watch-button"
+          >
+            <i class="bi bi-play-fill"></i> View Details
+          </a>
+        </div>
+      </article>
+      <ins
+        class="adsbygoogle"
+        style="display: block; text-align: center; margin: 20px 0"
+        data-ad-client="ca-pub-7437659953406580"
+        data-ad-slot="0987654321"
+        data-ad-format="fluid"
+        data-full-width-responsive="true"
+      ></ins>
+      <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    </section>
+  </ng-container>
 
-  <!-- Editorial Content for SEO -->
+  <ng-container *ngIf="!query.trim() && !selectedGenre">
+    <h2 class="category-title">🔥 Trending Now</h2>
+    <section class="movie-grid block-grid">
+      <article *ngFor="let movie of trendingMovies" class="movie-card">
+        <img
+          [src]="imageUrl(movie.poster_path)"
+          alt="{{ movie.title || movie.name }} official poster"
+          class="movie-poster"
+          loading="lazy"
+        />
+        <div class="movie-info">
+          <h2 class="movie-title">{{ movie.title || movie.name }}</h2>
+          <p class="movie-date">
+            Release Date:
+            {{ movie.release_date || movie.first_air_date | date : 'mediumDate' }}
+          </p>
+          <p class="movie-rating">
+            <i class="bi bi-star-fill" style="color: #ffcc00"></i>
+            {{ movie.vote_average ? (movie.vote_average | number : '1.1-1') : 'N/A' }}
+            / 10
+          </p>
+          <a
+            [routerLink]="['/', movie.media_type || 'movie', movie.id]"
+            class="watch-button"
+          >
+            <i class="bi bi-play-fill"></i> View Details
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <h2 class="category-title">⭐ Top Rated (All Time)</h2>
+    <section class="movie-grid block-grid">
+      <article *ngFor="let movie of topRatedMovies" class="movie-card">
+        <img
+          [src]="imageUrl(movie.poster_path)"
+          alt="{{ movie.title || movie.name }} official poster"
+          class="movie-poster"
+          loading="lazy"
+        />
+        <div class="movie-info">
+          <h2 class="movie-title">{{ movie.title || movie.name }}</h2>
+          <p class="movie-date">
+            Release Date:
+            {{ movie.release_date || movie.first_air_date | date : 'mediumDate' }}
+          </p>
+          <p class="movie-rating">
+            <i class="bi bi-star-fill" style="color: #ffcc00"></i>
+            {{ movie.vote_average ? (movie.vote_average | number : '1.1-1') : 'N/A' }}
+            / 10
+          </p>
+          <a
+            [routerLink]="['/', movie.media_type || 'movie', movie.id]"
+            class="watch-button"
+          >
+            <i class="bi bi-play-fill"></i> View Details
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <h2 class="category-title">📅 Upcoming Releases</h2>
+    <section class="movie-grid block-grid">
+      <article *ngFor="let movie of upcomingMovies" class="movie-card">
+        <img
+          [src]="imageUrl(movie.poster_path)"
+          alt="{{ movie.title || movie.name }} official poster"
+          class="movie-poster"
+          loading="lazy"
+        />
+        <div class="movie-info">
+          <h2 class="movie-title">{{ movie.title || movie.name }}</h2>
+          <p class="movie-date">
+            Release Date:
+            {{ movie.release_date || movie.first_air_date | date : 'mediumDate' }}
+          </p>
+          <p class="movie-rating">
+            <i class="bi bi-star-fill" style="color: #ffcc00"></i>
+            {{ movie.vote_average ? (movie.vote_average | number : '1.1-1') : 'N/A' }}
+            / 10
+          </p>
+          <a
+            [routerLink]="['/', movie.media_type || 'movie', movie.id]"
+            class="watch-button"
+          >
+            <i class="bi bi-play-fill"></i> View Details
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <h2 class="category-title">🎬 Now Playing in Cinemas</h2>
+    <section class="movie-grid block-grid">
+      <article *ngFor="let movie of nowPlayingMovies" class="movie-card">
+        <img
+          [src]="imageUrl(movie.poster_path)"
+          alt="{{ movie.title || movie.name }} official poster"
+          class="movie-poster"
+          loading="lazy"
+        />
+        <div class="movie-info">
+          <h2 class="movie-title">{{ movie.title || movie.name }}</h2>
+          <p class="movie-date">
+            Release Date:
+            {{ movie.release_date || movie.first_air_date | date : 'mediumDate' }}
+          </p>
+          <p class="movie-rating">
+            <i class="bi bi-star-fill" style="color: #ffcc00"></i>
+            {{ movie.vote_average ? (movie.vote_average | number : '1.1-1') : 'N/A' }}
+            / 10
+          </p>
+          <a
+            [routerLink]="['/', movie.media_type || 'movie', movie.id]"
+            class="watch-button"
+          >
+            <i class="bi bi-play-fill"></i> View Details
+          </a>
+        </div>
+      </article>
+    </section>
+  </ng-container>
+
   <section class="seo-text">
     <h2>Why Use StreamDay?</h2>
     <p>
-      At <strong>StreamDay</strong>, we help movie lovers and TV fans stay updated with the latest 
-      releases and trending titles. Our platform makes it easy to discover what’s popular, 
-      explore genres, and get quick access to ratings and trailers.
+      At <strong>StreamDay</strong>, we help movie lovers and TV fans stay updated with the
+      latest releases and trending titles. Our platform makes it easy to discover what’s
+      popular, explore genres, and get quick access to ratings and trailers.
     </p>
 
     <h3>Top Features</h3>
     <ul>
-      <li> Browse by genre, release date, or popularity</li>
-      <li> Get accurate ratings and reviews</li>
-      <li> Watch official trailers before deciding</li>
-      <li> Find where to watch movies legally online</li>
+      <li>Browse by genre, release date, or popularity</li>
+      <li>Get accurate ratings and reviews</li>
+      <li>Watch official trailers before deciding</li>
+      <li>Find where to watch movies legally online</li>
     </ul>
 
     <p>
-      Whether you’re looking for a weekend binge, family-friendly films, or the next blockbuster, 
-      StreamDay brings you reliable information all in one place.
+      Whether you’re looking for a weekend binge, family-friendly films, or the next
+      blockbuster, StreamDay brings you reliable information all in one place.
     </p>
 
-    <!-- ✅ Ad before footer ends -->
-    <ins class="adsbygoogle"
-         style="display:block; text-align:center; margin: 20px 0;"
-         data-ad-client="ca-pub-7437659953406580"
-         data-ad-slot="1122334455"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
+    <ins
+      class="adsbygoogle"
+      style="display: block; text-align: center; margin: 20px 0"
+      data-ad-client="ca-pub-7437659953406580"
+      data-ad-slot="1122334455"
+      data-ad-format="auto"
+      data-full-width-responsive="true"
+    ></ins>
     <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
   </section>
 
-  <!-- Disclaimer -->
   <footer class="disclaimer">
     <p>
-      <strong>Disclaimer:</strong> StreamDay does not host or provide unauthorized movie streams. 
-      All movie data, posters, and metadata are provided by 
-      <a href="https://www.themoviedb.org/" target="_blank" rel="noopener">The Movie Database (TMDb)</a>. 
-      We only share trailers, reviews, and information to help users discover where to watch movies legally.
+      <strong>Disclaimer:</strong> StreamDay does not host or provide unauthorized movie
+      streams. All movie data, posters, and metadata are provided by
+      <a href="https://www.themoviedb.org/" target="_blank" rel="noopener"
+        >The Movie Database (TMDb)</a
+      >. We only share trailers, reviews, and information to help users discover where to
+      watch movies legally.
     </p>
   </footer>
 </div>
