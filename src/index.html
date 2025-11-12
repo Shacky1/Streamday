@@ -6,31 +6,45 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- AdSense site verification -->
+  <!-- Canonical URL (important for favicon in Google Search) -->
+  <link rel="canonical" href="https://streamday.live/">
+
+  <!-- Google AdSense Verification -->
   <meta name="google-adsense-account" content="ca-pub-7437659953406580">
 
-  <!-- Google AdSense global script -->
+  <!-- Google AdSense Script -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7437659953406580"
      crossorigin="anonymous"></script>
 
-  <!--  SEO Meta Description -->
+  <!-- SEO Meta Description -->
   <meta name="description" content="Explore the latest movies and TV shows on StreamDay. Discover ratings, reviews, trailers, and where to watch legally online. Stay updated with trending entertainment.">
 
-  <!-- Open Graph for social sharing -->
+  <!-- Open Graph for Social Sharing -->
   <meta property="og:title" content="StreamDay | Discover Movies & TV Shows Online">
   <meta property="og:description" content="StreamDay helps you explore movies and shows with ratings, reviews, trailers, and legal viewing options.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://streamday.live">
-  <meta property="og:image" content="assets/images/og-image.jpg">
+  <meta property="og:image" content="https://streamday.live/assets/images/og-image.jpg">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="assets/images/logo.jpeg">
+  <!-- Favicon / Logo -->
+  <link rel="icon" type="image/png" href="https://streamday.live/assets/images/logo.jpeg" sizes="32x32">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://streamday.live/assets/images/logo-180.png">
 
-  <!-- Bootstrap Icons CDN -->
+  <!-- Organization Schema for Google Search (helps show logo) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "StreamDay",
+    "url": "https://streamday.live/",
+    "logo": "https://streamday.live/assets/images/logo.jpeg"
+  }
+  </script>
+
+  <!-- Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
 </head>
 <body>
-  </header>
 
   <!-- Angular App Root -->
   <app-root></app-root>
