@@ -12,7 +12,7 @@ export class MovieService {
   constructor(private http: HttpClient) {}
 
   // -----------------------------------------
-  // ✅ BASIC MOVIE ENDPOINTS
+  // BASIC MOVIE ENDPOINTS
   // -----------------------------------------
 
   getPopularMovies() {
@@ -40,7 +40,7 @@ export class MovieService {
   }
 
   // -----------------------------------------
-  // ✅ ADDITIONAL TMDB MOVIE FEATURES
+  // ADDITIONAL TMDB MOVIE FEATURES
   // -----------------------------------------
 
   getTrendingMovies() {
@@ -106,7 +106,7 @@ getMovieGenres() {
   }
 
   // -----------------------------------------
-  // ✅ PERSON / ACTOR FEATURES
+  //  PERSON / ACTOR FEATURES
   // -----------------------------------------
 
   // Get actor/person details
@@ -125,7 +125,7 @@ getMovieGenres() {
   }
 
   // -----------------------------------------
-  // ✅ TV FEATURES
+  // TV FEATURES
   // -----------------------------------------
 
   getPopularTvShows() {
